@@ -1,0 +1,41 @@
+import discord as dis
+import random
+import os
+from discord.ext import commands as com
+
+TOKEN='MTAzODU0NzQwMDAwMTg2MzgwMQ.GCgGK1.xLY-vP0UssOmNuM7OiiHMLh4lh8dLwPtYqhaE0'
+intents = dis.Intents.default()
+intents.message_content = True
+client= com.Bot(command_prefix='>', intents=intents)
+
+@client.event
+async def on_message(message):
+    if message.author == client.user:
+        return
+
+    brooklyn_99_quotes = ['I\'m the human form of the 💯 emoji.','Bingpot!',
+        (
+            'Cool. Cool cool cool cool cool cool cool, '
+            'no doubt no doubt no doubt no doubt.'
+        ),]
+
+    if message.content == 'joke':
+        response = random.choice(brooklyn_99_quotes)
+        await message.author.send(
+        f'Hi {message.author.name}, here is a joke\n{response}')
+
+@client.command
+async def question(message):
+    channel = await message.author.create_dm()
+    def check(m):
+        return m.author == message.author and m.channel == channel
+    try:
+        await message.author.send("How are you?") #your question inside ""
+        msg = await client.wait_for('message', timeout=100.0, check=check)
+        message_content = msg.content
+        await message.author.send(
+        f'{message_content}') #you can do anything with the content of the message
+    except:
+        await message.author.send("You did not answer in given time")
+
+client.run(TOKEN)
