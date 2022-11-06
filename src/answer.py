@@ -9,7 +9,7 @@ def response():
     import numpy as np 
     
     import nltk 
-    from nltk.stem import WordNetLemmatizer()
+    from nltk.stem import WordNetLemmatizer
 
     from tensorflow.keras.models import Sequential 
     from tensorflow.keras.layers import Dense, Activation, Dropout 
@@ -54,7 +54,7 @@ def response():
     for document in documents: 
         bag = []
         word_patterns = document[0]
-        word_patterns[lemmatizer.lemmatize(word.lower()) for word in word_patterns]
+        word_patterns[lemmatizer.lemmatize(word.lower() for word in word_patterns)]
         for word in words:
             bag.append(1) if word in word_patterns else bag.appends(0) 
 
