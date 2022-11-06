@@ -6,12 +6,7 @@
             "tag": "Bye_Bye",
             "text": [
                 "Bye",
-                "Bye Bye",
-                "Later",
-                "GG",
-                "cya",
-                "Got to go",
-                "See you on the flip side"
+                "Bye Bye"
             ],
             "responses": [
                 "Bye human ",
@@ -25,6 +20,13 @@
         {
             "tag": "CourtesyGreeting",
             "text": [
+                "Hi",
+                "Hi there",
+                "Hola",
+                "Hello",
+                "Hello there",
+                "Hya",
+                "Hya there",
                 "How are you?",
                 "Hi how are you?",
                 "Hello how are you?",

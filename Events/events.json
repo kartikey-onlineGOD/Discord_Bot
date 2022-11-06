@@ -1,0 +1,86 @@
+{
+    "intents": [
+
+
+        {
+            "tag": "Tech Event",
+            "text": [
+                "codeathon", "hackathon", "code", "develop", "tech", "technology", "google", "facebook", "systems",
+                "engineers", "design", "development", "technical", "computers", "computer engineering", "graphics", "hardware", "software",
+                "tracking", "optimize", "Aeronautics", " Integration"
+            ],
+            "responses": [
+                "Tech Event"
+
+            ]
+
+
+        },
+
+        {
+            "tag": "Sports Event",
+            "text": [
+                "football", "hockey", "sports", "sport", "basketball", "quaterback", "game day", "fifa", "soccer",
+                "balls", "cricket", "badminton", "tennis", "table tennis", "skating", "tournmanet", "championship", "white out", "WWE", "fight", "tickets"
+            ],
+            "responses": [
+                "Sports Event"
+
+            ]
+
+
+        },
+
+        {
+            "tag": "Literature Event",
+            "text": [
+                "author", "reading", "recitation", "book", "story", "lecutre",
+                "puppetry", "meet and greet", "slam", "poetry", "prose", "shakespear", "academic", "romance",
+                "reader", "readers"
+
+            ],
+            "responses": [
+                "Literature Event"
+
+            ]
+
+
+        },
+
+        {
+            "tag": "Concert Event",
+            "text": [
+                "artist", "music", "all night", "dj", "rockstar", "popstar", "concert",
+                "rock", "band", "tour", "singer", "beats", "loud music", "energetic", "dance", "disco", "dress code", "jockey", "sunburn"
+            ],
+            "responses": [
+                "Concert Event"
+
+            ]
+
+
+
+        },
+        {
+            "tag": "Festival Event",
+            "text": [
+                "fair", "fest", "stalls", "games", "all day", "jenga", "old main", "family", "friendly", "engagment", "shows", "carnival",
+                "gaint wheel",
+                "culture", "festivities"
+            ],
+            "responses": [
+                "Festival Event"
+
+            ]
+
+
+
+        }
+
+
+
+
+    ]
+
+
+}

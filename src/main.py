@@ -5,10 +5,16 @@ from discord.ext import commands
 from dotenv import load_dotenv
 import os
 import random
-import Chatbot_Trainer as ct 
-ct.main()   
+def train():
+    import Chatbot_Trainer as ct 
+    ct.main()   
 import Answers
+
+import sys
+sys.path.insert(0, 'C:/Users/karti/OneDrive/Documents/GitHub/Discord_Bot/Events')
      
+import event_main as evm
+
 
 
 TOKEN = "MTAzODUzNTY5OTkxNTM0NTk0MA.GpIUUg.nhNDQ8aD0_o1GLPqJHcBBsK3nCq3Fdvw5Zefb8"
@@ -36,14 +42,28 @@ async def on_message(message):
             await message.channel.send(a)
 
             if "events" in a: 
-                text = username +  " your events are coming up"
-                await message.channel.send(text)
+                text = evm.main()
+                k = ""
+
+                text = sorted(text, key = lambda x: x[1])   
+                j = 1
+                for i in range(len(text)): 
+                    if text[i][1] != "":
+                        k = str(j) + ".   "+text[i][0] + "\n" + text[i][1] + "\n\n"
+                        j = j+1
+                        await message.channel.send(k)
 
 
+                    
 
 
-        
-        
+def runner(): 
+    train()
+    evm.bot_create()
+
+    
+#runner()
+#train()
 
             
 client.run(TOKEN)
