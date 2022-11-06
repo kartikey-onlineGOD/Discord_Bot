@@ -13,10 +13,11 @@ from tensorflow.keras.models import load_model
 lemmatizer = nltk.stem.WordNetLemmatizer()
 intents = json.loads(open('assets\intents.json').read())
 
-if os.path.getsize("assets\words.pkl") > 0: 
-    kk = open('assets\words.pkl','rb')
-    words = pickle.load(kk)
-    kk.close()
+
+kk = open('assets\words.pkl','rb')
+words = pickle.load(kk)
+kk.close()
+
 
 kp = open('assets\classes.pkl','rb')
 classes = pickle.load(kp)
@@ -24,7 +25,7 @@ kp.close()
 model = load_model('assets\discordbot.h5')  
 
 def clean_up_sentence(sen):
-    sentence_words =  nltk.tokenize(sen)
+    sentence_words =  nltk.tokenize.casual_tokenize(sen)
     sentence_words = [lemmatizer.lemmatize(word)for word in sentence_words]
     return sentence_words
 
@@ -44,7 +45,7 @@ def predict_class(sentence):
     res = model.predict(np.array([bow]))[0]
 
     EROOR_THRESHOLD =   0.25 
-    result = [[i,r]for i in r in enumerate(res) if r>   EROOR_THRESHOLD]
+    result = [[i,r]for i,r in enumerate(res) if r>   EROOR_THRESHOLD]
 
     result.sort(key = lambda x : x[1],reverse = True)
     return_list = []
@@ -66,6 +67,7 @@ print("The Bot is running, Less Go!!!!")
 while True: 
     message = input("")
     ints = predict_class(message)
+
     res = get_response(ints,intents)
     print(res)
 
