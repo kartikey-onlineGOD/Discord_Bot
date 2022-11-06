@@ -220,12 +220,13 @@
         {
             "tag": "Events",
             "text": [
-                "What events are going on today?",
-                "Events today",
+                "What events are going on?",
+                "Events",
                 "what's happening today?",
-                "Any parties today?",
-                "anything fun to do today?",
-                "Anything I can do today for fun?"
+                "Any parties?",
+                "anything fun to do?",
+                "Anything I can do for fun?",
+                "Events", "Events now", "Events for now", "Events are", "What are my events", "Events"
 
 
 
