@@ -35,7 +35,7 @@ def response():
     words = [lemmatizer.lemmatize(word.lower()) for word in words if word not in ignore_letters]
 
     words = sorted(set(words))
-
+    print(words)
 
     classes = sorted(set(classes))
 
