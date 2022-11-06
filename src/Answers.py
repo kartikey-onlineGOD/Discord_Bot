@@ -64,12 +64,12 @@ def get_response(intents_list,intents_json):
 
 print("The Bot is running, Less Go!!!!")
 
-while True: 
-    message = input("")
-    ints = predict_class(message)
+def mm(message):
+    while True: 
+        ints = predict_class(message)
 
-    res = get_response(ints,intents)
-    print(res)
+        res = get_response(ints,intents)
+        return res 
 
 
 

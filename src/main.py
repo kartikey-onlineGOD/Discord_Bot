@@ -5,12 +5,13 @@ from discord.ext import commands
 from dotenv import load_dotenv
 import os
 import random
+import Chatbot_Trainer as ct 
+ct.main()   
+import Answers
      
 
-import answer
 
-
-TOKEN = "MTAzODU0NzQwMDAwMTg2MzgwMQ.GCgGK1.xLY-vP0UssOmNuM7OiiHMLh4lh8dLwPtYqhaE0"
+TOKEN = "MTAzODUzNTY5OTkxNTM0NTk0MA.GpIUUg.nhNDQ8aD0_o1GLPqJHcBBsK3nCq3Fdvw5Zefb8"
 
 
 
@@ -30,14 +31,13 @@ async def on_message(message):
   
     if channel == "test":
         gg = user_message.lower()
-        if user_message.lower() == "hello" or user_message.lower() == "hi":
-            await message.channel.send(f'Hello {username}')
-            return
-        elif user_message.lower() == "bye":
-            await message.channel.send(f'Bye {username}')
-        elif gg != "": 
-            a = answer.ans(gg)
+        if gg != "": 
+            a = Answers.mm(gg)
             await message.channel.send(a)
+
+            if "events" in a: 
+                text = username +  " your events are coming up"
+                await message.channel.send(text)
 
 
 
