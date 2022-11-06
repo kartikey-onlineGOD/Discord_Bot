@@ -82,9 +82,9 @@ def response():
     model.compile(loss='categorical_crossentropy', optimizer= sgd, metrics= 
     ['accuracy'])
 
-    hist = model.fit(np.array(train_x),np.array(train_y),epochs=5000,batch_size=5,
+    hist = model.fit(np.array(train_x),np.array(train_y),epochs=200,batch_size=5,
     verbose=1)
-    model.save("src/discordbot.h5",hist)
+    model.save("assets\discordbot.h5",hist)
     print("done")
 
 

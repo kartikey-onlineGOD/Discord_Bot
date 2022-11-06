@@ -2,6 +2,7 @@ import random
 import json 
 import pickle 
 import numpy as np 
+import os
     
 import nltk 
 from nltk.stem import WordNetLemmatizer
@@ -10,14 +11,20 @@ lemmatizer = nltk.stem.WordNetLemmatizer()
 from tensorflow.keras.models import load_model
 
 lemmatizer = nltk.stem.WordNetLemmatizer()
-intents = json.load(open('intents.json').read())
+intents = json.loads(open('assets\intents.json').read())
 
-words = pickle.load(open('words.pkl','wb'))
-classes = pickle.load(open('classes.pkl','wb'))
-model = load_model('discordbot.model')
+if os.path.getsize("assets\words.pkl") > 0: 
+    kk = open('assets\words.pkl','rb')
+    words = pickle.load(kk)
+    kk.close()
 
-def clean_up_sentence(sentence):
-    sentence_words =  nltk.tokenize(sentence)
+kp = open('assets\classes.pkl','rb')
+classes = pickle.load(kp)
+kp.close()
+model = load_model('assets\discordbot.h5')  
+
+def clean_up_sentence(sen):
+    sentence_words =  nltk.tokenize(sen)
     sentence_words = [lemmatizer.lemmatize(word)for word in sentence_words]
     return sentence_words
 
@@ -45,7 +52,27 @@ def predict_class(sentence):
         return_list.append({'intent':classes[r[0]],'probability': str(r[1])} )
     return return_list
 
-    
+def get_response(intents_list,intents_json): 
+    tag = intents_list[0]['intent']
+    list_of_intents = intents_json['intents']
+    for i in list_of_intents: 
+        if i['tag'] == tag: 
+            result = random.choice(i['responses'])
+            break 
+    return result 
+
+print("The Bot is running, Less Go!!!!")
+
+while True: 
+    message = input("")
+    ints = predict_class(message)
+    res = get_response(ints,intents)
+    print(res)
+
+
+
+
+
 
 
 
